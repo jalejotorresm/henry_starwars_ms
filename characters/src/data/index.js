@@ -1,8 +1,10 @@
 const characters = require("./characters.json");
+const axios = require("axios");
 
 module.exports = {
   list: async () => {
-    return characters;
+    const results = await axios.get("http://database:8005/Character");
+    return results.data;
   },
 
   create: async () => {
